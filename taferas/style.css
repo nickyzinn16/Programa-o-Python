@@ -1,0 +1,37 @@
+body {
+    background-color: lightgrey;
+    font-family: Roboto, sans-serif;
+    margin: 50px auto;
+    max-width: 600px;
+}
+
+.task {
+    background-color: white;
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task.finished {
+    background-color: aliceblue;
+    text-decoration: underline;
+}
+
+button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    background-color: lightgreen;
+    border: 1px lightgreen solid;
+
+}
+
+input {
+    padding: 5px 10px;
+    border-radius: 8px;
+    background-color: lightblue;
+    border: 1px lightblue solid;
+}
