@@ -10,13 +10,12 @@ db_password = "asibd#12"
 db_name = "emp_management_db"
 
 def connection():
-    return 
-        conexao = mysql.connector.connect(
-            host = db_host
-            user = db_user,
-            password = db_password,
-            database = db_name
-        )
+    return mysql.connector.connect(
+        host=db_host,
+        user=db_user,
+        password=db_password,
+        database=db_name
     )
 
+conexao = connection() # se der erro tirar esse
 cursor = conexao.cursor()

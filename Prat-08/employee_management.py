@@ -1,130 +1,120 @@
+import mysql.connector
+
+def connect_db():
+    return mysql.connector.connect(
+        host="localhost",
+        user="asibd",
+        password="asibd#12",
+        database="emp_management_db"
+    )
+
 # ====================================
 #           1. Pesquisar
 # ====================================
-import mysql.connector
+def search_employee():
+    conexao = connect_db()
+    cursor = conexao.cursor()
 
-conexao = mysql.connector.connect(
-    host = "localhost",
-    user = "asibd",
-    password = "asibd#12",
-    database = "emp_management_db",
-)
+    employee_id = int(input("Id do funcionario: "))
 
-cursor = conexao.cursor()
+    sql_query = "SELECT * FROM employees WHERE id = %s"
+    cursor.execute(sql_query, (employee_id,))
 
-employee_id = int(input("Id do funcionario: "))
+    result = cursor.fetchone()
 
-sql_query = "DELETE FROM employees SET WHERE id = %s"
+    if result:
+        print("Funcionario encontrado:")
+        print(result)
+    else:
+        print("Funcionario nao encontrado.")
 
-cursor.execute(sql_query, (employee_id,))
-conexao.commit()
-
+    conexao.close()
 
 
 # ====================================
 #           2. Listar
 # ====================================
-import mysql.connector
+def list_employees():
+    conexao = connect_db()
+    cursor = conexao.cursor()
 
-conexao = mysql.connector.connect(
-    host = "localhost",
-    user = "asibd",
-    password = "asibd#12",
-    database = "emp_management_db",
-)
+    sql_query = "SELECT * FROM employees"
+    cursor.execute(sql_query)
 
-cursor = conexao.cursor()
+    employees_datas = cursor.fetchall()
 
-sql_query = 'SELECT * FROM employees'
-cursor.execute(sql_query)
+    employees_list = []
 
-employees_datas = cursor.fetchall()
-print(f'{employees_datas}')
+    for each_line in employees_datas:
+        employee = {
+            "id": each_line[0],
+            "first_name": each_line[1],
+            "last_name": each_line[2],
+            "email": each_line[3],
+            "phone": each_line[4],
+        }
 
-employees_list = []
+        employees_list.append(employee)
 
-for each_line in employees_datas:
-    employee = {
-        "id": each_line[0],
-        "first_name": each_line[1],
-        "last_name": each_line[2],
-        "email": each_line[3],
-        "phone": each_line[4],
-    }
+    for employee in employees_list:
+        print(employee)
 
-    employees_list.append(employee)
-
-    print(f'{employees_list}')
-
-
+    conexao.close()
 
 # ====================================
 #           3. Registrar
 # ====================================
- import mysql.connector
+def regist_employee():
+    conexao = connect_db()
+    cursor = conexao.cursor()
 
-conexao = mysql.connector.connect(
-    host = "localhost",
-    user = "asibd",
-    password = "asibd#12",
-    database = "emp_management_db",
-)
+    first_name = input("Insira o primeiro nome: ")
+    last_name = input("Insira o ultimo nome: ")
+    email = input("Insira o email: ")
+    phone = input("Insira o numero de telefone: ")
 
-cursor = conexao.cursor()
+    sql_query = "INSERT INTO employees (first_name, last_name, email, phone) VALUES (%s, %s, %s, %s)"
+    values = (first_name, last_name, email, phone)
+    cursor.execute(sql_query, values)
+    conexao.commit()
 
-first_name = input("Insira o primeiro nome: ")
-last_name = input("Insira o ultimo nome: ")
-email = input("Insira o email: ")
-phone_number = input("Insira o numero de telefone: ")
+    print("Funcionario registrado.")
 
-sql_query = "INSERT INTO employees (first_name, last_name, email, phone_number) VALUES (%s, %s, %s, %s)"
-values = (first_name, last_name, email, phone_number)
-cursor.execute(sql_query, values)
-conexao.commit()
-
+    conexao.close()
 
 
 # ====================================
 #           4. Atualizar
 # ====================================
-import mysql.connector
+def update_employee():
+    conexao = connect_db()
+    cursor = conexao.cursor()
 
-conexao = mysql.connector.connect(
-    host = "localhost",
-    user = "asibd",
-    password = "asibd#12",
-    database = "emp_management_db",
-)
+    employee_id = int(input("Id do funcionario: "))
+    first_name = input("Insira o nome a atualizar: ")
 
-cursor = conexao.cursor()
+    sql_query = "UPDATE employees SET first_name = %s WHERE id = %s"
+    cursor.execute(sql_query, (first_name, employee_id))
+    conexao.commit()
 
-employee_id = int(input("Id do funcionario: "))
-first_name = input("Insira o nome a atualizar: ")
+    print("Funcionario atualizado.")
 
-sql_query = "UPDATE employees SET first_name = %s WHERE id = %s"
-
-cursor.execute(sql_query, (first_name, employee_id))
-conexao.commit()
-
+    conexao.close()
 
 
 # ====================================
 #           5. Elminar
 # ====================================
-import mysql.connector
+def delete_employee():
+    conexao = connect_db()
+    cursor = conexao.cursor()
 
-conexao = mysql.connector.connect(
-    host = "localhost",
-    user = "asibd",
-    password = "asibd#12",
-    database = "emp_management_db",
-)
+    employee_id = int(input("Id do funcionario: "))
 
-cursor = conexao.cursor()
+    sql_query = "DELETE FROM employees WHERE id = %s"
+    cursor.execute(sql_query, (employee_id,))
+    conexao.commit()
 
-employee_id = int(input("Id do funcionario: "))
+    print("Funcionario eliminado.")
 
-sql_query = "DELETE FROM employees SET WHERE id = %s"
-
-cursor.execute(sql_query, (employee_id,))
-conexao.commit()
+    conexao.close()

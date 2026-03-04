@@ -1,7 +1,7 @@
-import customers_management.py
-import employee_management.py
-import sales_management.py
-import products_management.py
+import customers_management
+import employee_management
+import sales_management
+import products_management
 
 # ==============================================================
 # ==================== Menu Principal ==========================
@@ -50,15 +50,15 @@ def employee_menu():
         option = input("Por favor escolha uma opcao do SubMenu: ")
 
         if option == "1":
-            search_employees.py
+            employee_management.search_employee()
         elif option == "2":
-            list_employees.py
+            employee_management.list_employees()
         elif option == "3":
-            regist_employee.py
+            employee_management.regist_employee()
         elif option == "4":
-            update_employee.py
+            employee_management.update_employee()
         elif option == "5":
-            delete_employee.py
+            employee_management.delete_employee()
         elif option == "0":
             break
         else:
@@ -82,15 +82,15 @@ def customers_menu():
         option = input("Por favor escolha uma opcao do SubMenu: ")
 
         if option == "1":
-            search_customers.py
+            customers_management.search_customers()
         elif option == "2":
-            list_customers.py
+            customers_management.list_customers()
         elif option == "3":
-            regist_customers.py
+            customers_management.regist_customers()
         elif option == "4":
-            update_customers.py
+            customers_management.update_customers()
         elif option == "5":
-            delete_customers.py
+            customers_management.delete_customers()
         elif option == "0":
             break
         else:
@@ -114,15 +114,15 @@ def products_menu():
         option = input("Por favor escolha uma opcao do SubMenu: ")
 
         if option == "1":
-            search_products.py
+            products_management.search_products()
         elif option == "2":
-            list_products.py
+            products_management.list_products()
         elif option == "3":
-            regist_products.py
+            products_management.regist_products()
         elif option == "4":
-            update_products.py
+            products_management.update_products()
         elif option == "5":
-            delete_products.py
+            products_management.delete_products()
         elif option == "0":
             break
         else:
@@ -146,15 +146,15 @@ def sales_menu():
         option = input("Por favor escolha uma opcao do SubMenu: ")
 
         if option == "1":
-            search_sales.py
+            sales_management.search_sales()
         elif option == "2":
-            list_sales.py
+            sales_management.list_sales()
         elif option == "3":
-            regist_sales.py
+            sales_management.regist_sales()
         elif option == "4":
-            update_sales.py
+            sales_management.update_sales()
         elif option == "5":
-            delete_sales.py
+            sales_management.delete_sales()
         elif option == "0":
             break
         else:
@@ -168,5 +168,4 @@ def sales_menu():
 if __name__ == "__main__":
     main_menu()
 
-
-    enunciado sobre autenticacao
+# enunciado sobre autenticacao
