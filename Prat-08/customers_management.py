@@ -12,6 +12,7 @@ def connect_db():
 # 1. Pesquisar
 # ====================================
 def search_customers():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -28,12 +29,16 @@ def search_customers():
         print(f"Cliente nao encontrado.")
 
     conexao.close()
+=======
+    pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7
 
 
 # ====================================
 # 2. Listar
 # ====================================
 def list_customers():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -59,12 +64,16 @@ def list_customers():
         print(f"Cliente: {customer}")
 
     conexao.close()
+=======
+    pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7
 
 
 # ====================================
 # 3. Registrar
 # ====================================
 def regist_customers():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -82,12 +91,16 @@ def regist_customers():
     print(f"Cliente registrado.")
 
     conexao.close()
+=======
+    pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7
 
 
 # ====================================
 # 4. Atualizar
 # ====================================
 def update_customers():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -101,12 +114,16 @@ def update_customers():
     print(f"Cliente atualizado.")
 
     conexao.close()
+=======
+    pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7
 
 
 # ====================================
 # 5. Eliminar
 # ====================================
 def delete_customers():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -119,3 +136,6 @@ def delete_customers():
     print("Cliente eliminado.")
 
     conexao.close()
+=======
+        pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7

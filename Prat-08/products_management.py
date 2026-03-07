@@ -12,6 +12,7 @@ def connect_db():
 # 1. Pesquisa
 # ====================================
 def search_products():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -29,11 +30,15 @@ def search_products():
 
     conexao.close()
 
+=======
+    pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7
 
 # ====================================
 # 2. Listar
 # ====================================
 def list_products():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -59,11 +64,15 @@ def list_products():
 
     conexao.close()
 
+=======
+    pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7
 
 # ====================================
 # 3. Registrar
 # ====================================
 def regist_products():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -81,11 +90,15 @@ def regist_products():
 
     conexao.close()
 
+=======
+    pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7
 
 # ====================================
 # 4. Atualizar
 # ====================================
 def update_products():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -100,11 +113,15 @@ def update_products():
 
     conexao.close()
 
+=======
+    pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7
 
 # ====================================
 # 5. Eliminar
 # ====================================
 def delete_products():
+<<<<<<< HEAD
     conexao = connect_db()
     cursor = conexao.cursor()
 
@@ -117,3 +134,6 @@ def delete_products():
     print(f"Produto eliminado.")
 
     conexao.close()
+=======
+    pass
+>>>>>>> c5bae0a14b0d005c3500d6d64b9fa4f0c0a794e7

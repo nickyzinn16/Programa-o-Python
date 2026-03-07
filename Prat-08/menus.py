@@ -19,13 +19,13 @@ def main_menu():
         option = input(f"Por favor escolha uma opcao: ")
 
         if option == "1":
-            employee_menu()
+            employee_management.employee_menu()
         elif option == "2":
-            customers_menu()
+            employee_management.customers_menu()
         elif option == "3":
-            products_menu()
+            employee_management.products_menu()
         elif option == "4":
-            sales_menu()
+            employee_management.sales_menu()
         elif option == "0":
             print(f"Programa encerrado.")
             break
