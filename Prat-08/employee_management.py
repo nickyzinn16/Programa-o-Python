@@ -15,7 +15,7 @@ def search_employee():
     conexao = connect_db()
     cursor = conexao.cursor()
 
-    employee_id = int(input("Id do funcionario: "))
+    employee_id = int(input(f"Id do funcionario: "))
 
     sql_query = "SELECT * FROM employees WHERE id = %s"
     cursor.execute(sql_query, (employee_id,))
@@ -23,10 +23,9 @@ def search_employee():
     result = cursor.fetchone()
 
     if result:
-        print("Funcionario encontrado:")
-        print(result)
+        print(f"Funcionario encontrado: {result}")
     else:
-        print("Funcionario nao encontrado.")
+        print(f"Funcionario nao encontrado.")
 
     conexao.close()
 
@@ -57,7 +56,7 @@ def list_employees():
         employees_list.append(employee)
 
     for employee in employees_list:
-        print(employee)
+        print(f"Funcionario: {employee}")
 
     conexao.close()
 
@@ -68,17 +67,17 @@ def regist_employee():
     conexao = connect_db()
     cursor = conexao.cursor()
 
-    first_name = input("Insira o primeiro nome: ")
-    last_name = input("Insira o ultimo nome: ")
-    email = input("Insira o email: ")
-    phone = input("Insira o numero de telefone: ")
+    first_name = input(f"Insira o primeiro nome: ")
+    last_name = input(f"Insira o ultimo nome: ")
+    email = input(f"Insira o email: ")
+    phone = input(f"Insira o numero de telefone: ")
 
     sql_query = "INSERT INTO employees (first_name, last_name, email, phone) VALUES (%s, %s, %s, %s)"
     values = (first_name, last_name, email, phone)
     cursor.execute(sql_query, values)
     conexao.commit()
 
-    print("Funcionario registrado.")
+    print(f"Funcionario registrado.")
 
     conexao.close()
 
@@ -90,14 +89,14 @@ def update_employee():
     conexao = connect_db()
     cursor = conexao.cursor()
 
-    employee_id = int(input("Id do funcionario: "))
-    first_name = input("Insira o nome a atualizar: ")
+    employee_id = int(input(f"Id do funcionario: "))
+    first_name = input(f"Insira o nome a atualizar: ")
 
     sql_query = "UPDATE employees SET first_name = %s WHERE id = %s"
     cursor.execute(sql_query, (first_name, employee_id))
     conexao.commit()
 
-    print("Funcionario atualizado.")
+    print(f"Funcionario atualizado.")
 
     conexao.close()
 
@@ -109,12 +108,12 @@ def delete_employee():
     conexao = connect_db()
     cursor = conexao.cursor()
 
-    employee_id = int(input("Id do funcionario: "))
+    employee_id = int(input(f"Id do funcionario: "))
 
     sql_query = "DELETE FROM employees WHERE id = %s"
     cursor.execute(sql_query, (employee_id,))
     conexao.commit()
 
-    print("Funcionario eliminado.")
+    print(f"Funcionario eliminado.")
 
     conexao.close()
